@@ -3,13 +3,13 @@ import os
 
 ## Discord
 # Guild ID
-GID = os.environ.get("GID")
+guildid = os.environ.get("GUILDID")
 # Token
 token = os.environ.get("TOKEN")
 
 bot = discord.Bot(intents = discord.Intents.all())
 
-@bot.slash_command(guild_ids = [GID], pass_context=True)
+@bot.slash_command(guild_ids = [guildid], pass_context=True)
 async def role(ctx:discord.ApplicationContext):
     member = ctx.author
     role = discord.utils.get(ctx.guild.roles, name="dev")
@@ -17,7 +17,7 @@ async def role(ctx:discord.ApplicationContext):
 
 
 
-@bot.slash_command(guild_ids = [GID])
+@bot.slash_command(guild_ids = [guildid])
 async def reac(ctx:discord.ApplicationContext):
     global message_id
     role = discord.utils.get(ctx.guild.roles, name="dev")
